@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/bangers</item>
+        <item>@font/jetbrains_mono</item>
+        <item>@font/jetbrains_mono_bold</item>
+        <item>@font/jetbrains_mono_bold_italic</item>
+        <item>@font/jetbrains_mono_extrabold</item>
+        <item>@font/jetbrains_mono_extrabold_italic</item>
+        <item>@font/jetbrains_mono_extralight</item>
+        <item>@font/jetbrains_mono_extralight_italic</item>
+        <item>@font/jetbrains_mono_italic</item>
+        <item>@font/jetbrains_mono_light</item>
+        <item>@font/jetbrains_mono_light_italic</item>
+        <item>@font/jetbrains_mono_medium</item>
+        <item>@font/jetbrains_mono_medium_italic</item>
+        <item>@font/jetbrains_mono_semibold</item>
+        <item>@font/jetbrains_mono_semibold_italic</item>
+        <item>@font/jetbrains_mono_thin_italic</item>
+        <item>@font/roboto</item>
+        <item>@font/roboto_black</item>
+        <item>@font/roboto_bold</item>
+        <item>@font/roboto_thin</item>
+    </array>
+</resources>
