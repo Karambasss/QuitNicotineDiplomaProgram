@@ -10,18 +10,16 @@ import com.michael.quitnicotine_application.view.fragments.FragmentAuth2
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private val fragment1 = FragmentAuth1()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setNewFragment(fragment1)
+        setNewFragment(FragmentAuth1.newInstance())
     }
 
     private fun setNewFragment(fragment : Fragment){
         // TODO - проверка на то, что имя заполнено - тогда фрагмент не вызывается!
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frame_layout, fragment)
-            addToBackStack(null)
             commit()
         }
     }
