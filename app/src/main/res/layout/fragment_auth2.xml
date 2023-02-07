@@ -7,21 +7,30 @@
     tools:context=".view.fragments.FragmentAuth2">
 
     <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginTop="68dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_marginTop="464dp"
+        android:layout_marginTop="448dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="330dp"
-        android:layout_height="22dp"
+        android:layout_width="331dp"
+        android:layout_height="39dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
-        android:fontFamily="@font/roboto_black"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/jetbrains_mono_light_italic"
         android:text="Сколько сигарет вы выкуриваете в день?"
         android:textAlignment="center"
         android:textSize="16sp"
@@ -29,16 +38,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/authNumberOfSig"
+        android:id="@+id/authNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="Введите кол-во сигарет"
         android:inputType="number"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
+        android:textColorHint="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -55,42 +64,57 @@
         android:id="@+id/textView3"
         android:layout_width="241dp"
         android:layout_height="27dp"
-        android:fontFamily="@font/roboto_black"
+        android:fontFamily="@font/jetbrains_mono_light_italic"
         android:text="Сколько стоит пачка?"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <EditText
         android:id="@+id/authPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="Цена пачки, руб"
         android:inputType="number"
         android:minHeight="48dp"
-        android:textColorHint="#757575"
+        android:textColorHint="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/button_auth2"
+        android:id="@+id/button_auth1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="#2196F3"
+        android:fontFamily="@font/jetbrains_mono"
         android:text="Завершить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="263dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/jetbrains_mono"
+        android:text="Еще немного..."
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
