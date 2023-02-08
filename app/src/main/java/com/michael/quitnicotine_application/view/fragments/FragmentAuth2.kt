@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.michael.quitnicotine_application.R
 import kotlinx.android.synthetic.main.fragment_auth1.*
 import kotlinx.android.synthetic.main.fragment_auth2.*
@@ -17,6 +18,11 @@ class FragmentAuth2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val args = this.arguments
+        val fragment1UserName = args?.get("userNameDataBundle").toString()
+        Log.d("Fr2DataFromFf1", fragment1UserName)
+        Toast.makeText(activity,"Вы успешно передали данные из фрагмента 1 в фрагмент 2!\nПолученные данные: $fragment1UserName", Toast.LENGTH_LONG).show()
         return inflater.inflate(R.layout.fragment_auth2, container, false)
     }
 
