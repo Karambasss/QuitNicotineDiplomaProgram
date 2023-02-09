@@ -1,23 +1,40 @@
 package com.michael.quitnicotine_application.view
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.michael.quitnicotine_application.R
+import com.michael.quitnicotine_application.constances.ShConstants
 import com.michael.quitnicotine_application.view.fragments.FragmentAuth1
-import com.michael.quitnicotine_application.view.fragments.FragmentAuth2
+import com.michael.quitnicotine_application.view.fragments.MainFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setNewFragment(FragmentAuth1.newInstance())
-    }
 
+        // проверяем кэш приложения, если там есть данные, фрагмент авторизации не вызываем, вызываем сразу фрагмент главной страницы
+        sharedPreferences = getSharedPreferences(ShConstants.SHARED_PREF_KEY, MODE_PRIVATE)
+
+        // создаем фрагмент в зависимости от кэша
+        val fragment = if (checkSharedPreferencesData()){
+            MainFragment.newInstance()
+        }
+        else{
+            FragmentAuth1.newInstance()
+        }
+
+        setNewFragment(fragment)
+    }
+    // метод проверки кэша
+    private fun checkSharedPreferencesData(): Boolean = sharedPreferences.contains(ShConstants.KEY_NAME_USER_DATA)
+
+    // метод перехода во фрагмент
     private fun setNewFragment(fragment : Fragment){
-        // TODO - проверка на то, что имя заполнено - тогда фрагмент не вызывается!
+
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frame_layout, fragment)
             commit()

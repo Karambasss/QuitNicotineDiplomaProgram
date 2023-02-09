@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResult
 import com.michael.quitnicotine_application.R
 import kotlinx.android.synthetic.main.fragment_auth1.*
 import kotlinx.android.synthetic.main.fragment_auth2.view.*
@@ -25,7 +24,7 @@ class FragmentAuth1 : Fragment() {
                 val userName = authName.text.toString()
 
                 // Способ передачи данных через Bundle - наподобие intent.putExtra()
-                val bundle : Bundle = Bundle()
+                val bundle = Bundle()
                 bundle.putString("userNameDataBundle", userName)
 
                 // Фрагмент, который будет запущен, ставим ему в аргументы данные Bundle

@@ -1,5 +1,81 @@
 <resources>
     <string name="app_name">StopSmoke!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="achievementName_txt">
+        <item>Не курю 1 день</item>
+        <item>Не курю 5 дней</item>
+        <item>Не курю 10 дней</item>
+        <item>Не курю 30 дней</item>
+        <item>Не курю 90 дней</item>
+        <item>Не курю 180 дней</item>
+        <item>Не курю 365 дней</item>
+        <item>Не курю 1825 дней</item>
+        <item>Не курю 3679 дней</item>
+
+        <item>Не выкурил 20 сигарет</item>
+        <item>Не выкурил 100 сигарет</item>
+        <item>Не выкурил 500 сигарет</item>
+        <item>Не выкурил 1000 сигарет</item>
+        <item>Не выкурил 5000 сигарет</item>
+        <item>Не выкурил 15000 сигарет</item>
+        <item>Не выкурил 30000 сигарет</item>
+        <item>Не выкурил 50000 сигарет</item>
+        <item>Не выкурил 150000 сигарет</item>
+        <item>Не выкурил 500000 сигарет</item>
+        <item>Не выкурил 1005000 сигарет</item>
+
+        <item>Кофе, кофе, кофе. Что может быть лучше кофе?<br/>Ты сэкономил 100 руб.</item>
+        <item>Заработал больше, чем инвесторы в 2022 году!<br/>Ты сэкономил 500 руб.</item>
+        <item>Первая тысяча! Пошли в кино?<br/>Ты сэкономил 1000 руб.</item>
+        <item>Теперь ты можешь заправить полный бак своего автомобиля!<br/>Ты сэкономил 2000 руб.</item>
+        <item>Ало, да, забронируйте столик!<br/>Ты сэкономил 5000 руб.</item>
+        <item>Мальчик, водички неси, мы в Сочи летим!<br/>Ты сэкономил 10000 руб.</item>
+        <item>Едем на шопинг!<br/>Ты сэкономил 30000 руб.</item>
+        <item>Поделись с создателем приложения!<br/>Ты сэкономил 100000 руб.</item>
+        <item>Ало, да, забронируйте номер в отеле!<br/>Ты сэкономил 500000 руб.</item>
+        <item>Первый миллион? Покупай акции Сбербанка на всю котлету!<br/>Ты сэкономил 1000000 руб.</item>
+        <item>Ну что, покупаем машину? Прошу, только не BMW!<br/>Ты сэкономил 5000000</item>
+        <item>Поздравляю, ты можешь открыть кофейню в центре Москвы!<br/>Ты сэкономил 10000000</item>
+        <item>Без мам, пап и кредитов! Ты можешь купить себе квартиру!<br/>Ты сэкономил 20000000</item>
+    </string-array>
+
+
+    <integer-array name="achievementCondition">
+        <item>1</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>90</item>
+        <item>180</item>
+        <item>365</item>
+        <item>1825</item>
+        <item>3679</item>
+
+        <item>20</item>
+        <item>100</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>5000</item>
+        <item>15000</item>
+        <item>30000</item>
+        <item>50000</item>
+        <item>150000</item>
+        <item>500000</item>
+        <item>1005000</item>
+
+        <item>100</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>2000</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>30000</item>
+        <item>100000</item>
+        <item>500000</item>
+        <item>1000000</item>
+        <item>5000000</item>
+        <item>10000000</item>
+        <item>20000000</item>
+    </integer-array>
 </resources>
