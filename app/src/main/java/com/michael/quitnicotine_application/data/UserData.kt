@@ -1,9 +1,8 @@
 package com.michael.quitnicotine_application.data
 
 class UserData(_name: String, _cigarettesCount: Int,
-               _packetPrice: Int, _dayCount: Int = 0,
-               _achievements: MutableList<Achievement>,
-               _savedMoney: Double = 0.0, _savedCigarettes: Int = 0) {
+               _packetPrice: Int,
+               _achievements: MutableList<Achievement>) {
 
     // Константы
     private val cigarettesInAPacket = 20    // сигарет в пачке
@@ -13,9 +12,9 @@ class UserData(_name: String, _cigarettesCount: Int,
     private var achievements = _achievements   // достижения
 
     // Изменяющиеся данные
-    private var dayCount = _dayCount     // кол-во дней с отказа от курения
-    private var savedMoney = _savedMoney  // сэкономленные деньги
-    private var savedCigarettes = _savedCigarettes    // сколько сигарет не было выкурено с момента отказа от курения
+    private var dayCount = 0     // кол-во дней с отказа от курения
+    private var savedMoney = 0.0  // сэкономленные деньги
+    private var savedCigarettes = 0    // сколько сигарет не было выкурено с момента отказа от курения
 
     fun getUserName() = userName
 

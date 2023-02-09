@@ -1,12 +1,12 @@
 package com.michael.quitnicotine_application.data
 
-class Achievement(_achievementName: String,
-                  _achievementStatus: Boolean = false,
-                  _condition: Int) {
+class Achievement(
+    _achievementName: String,
+    _condition: Int) {
 
     private var achievementName = _achievementName   // название достижения
-    private var achievementStatus = _achievementStatus   // статус (выполнено или нет)
     private var condition = _condition   // требуемое условие
+    private var achievementStatus = false   // статус (выполнено или нет)
 
     fun getAchievementName() = achievementName
 
