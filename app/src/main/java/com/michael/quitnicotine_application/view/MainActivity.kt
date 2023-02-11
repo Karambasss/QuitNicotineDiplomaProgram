@@ -3,6 +3,7 @@ package com.michael.quitnicotine_application.view
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.michael.quitnicotine_application.R
 import com.michael.quitnicotine_application.constances.ShConstants
@@ -11,6 +12,7 @@ import com.michael.quitnicotine_application.view.fragments.MainFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var fragment: Fragment
     private lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,12 +21,14 @@ class MainActivity : AppCompatActivity() {
         // проверяем кэш приложения, если там есть данные, фрагмент авторизации не вызываем, вызываем сразу фрагмент главной страницы
         sharedPreferences = getSharedPreferences(ShConstants.SHARED_PREF_KEY, MODE_PRIVATE)
 
-        // создаем фрагмент в зависимости от кэша
-        val fragment = if (checkSharedPreferencesData()){
-            MainFragment.newInstance()
+        // создаем фрагмент в зависимости от кэша, и если он существует то отрисовываем панель навигации )
+        if (checkSharedPreferencesData()){
+            fragment = MainFragment.newInstance()
+            bottomNavigationView.visibility = View.VISIBLE
         }
         else{
-            FragmentAuth1.newInstance()
+            fragment = FragmentAuth1.newInstance()
+            bottomNavigationView.visibility = View.INVISIBLE
         }
 
         setNewFragment(fragment)

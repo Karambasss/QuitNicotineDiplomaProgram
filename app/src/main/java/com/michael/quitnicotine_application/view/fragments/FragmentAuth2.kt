@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.gson.Gson
 import com.michael.quitnicotine_application.R
 import com.michael.quitnicotine_application.constances.ShConstants
@@ -32,7 +31,7 @@ class FragmentAuth2 : Fragment() {
         val fragment1UserName = args?.get("userNameDataBundle").toString()
         Log.d("Fr2DataFromFf1", fragment1UserName)
         userName = fragment1UserName
-        Toast.makeText(activity,"Вы успешно передали данные из фрагмента 1 в фрагмент 2!\nПолученные данные: $fragment1UserName", Toast.LENGTH_LONG).show()
+        // Toast.makeText(activity,"Вы успешно передали данные из фрагмента 1 в фрагмент 2!\nПолученные данные: $fragment1UserName", Toast.LENGTH_LONG).show()
         return inflater.inflate(R.layout.fragment_auth2, container, false)
     }
 
@@ -46,6 +45,7 @@ class FragmentAuth2 : Fragment() {
                 onSaveUserData()
 
                 // авторизация завершена, данные сохранены, делаем переход на фрагмент главной страницы
+
                 val fragment = MainFragment.newInstance()
                 parentFragmentManager.beginTransaction().apply {
                     replace(R.id.frame_layout, fragment)
