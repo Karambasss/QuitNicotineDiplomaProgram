@@ -1,0 +1,73 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <PreferenceCategory app:title="@string/messages_header">-->
+
+<!--        <EditTextPreference-->
+<!--            app:key="signature"-->
+<!--            app:title="@string/signature_title"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+<!--        <ListPreference-->
+<!--            app:defaultValue="reply"-->
+<!--            app:entries="@array/reply_entries"-->
+<!--            app:entryValues="@array/reply_values"-->
+<!--            app:key="reply"-->
+<!--            app:title="@string/reply_title"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+<!--    </PreferenceCategory>-->
+
+<!--    <PreferenceCategory app:title="@string/sync_header">-->
+
+<!--        <SwitchPreferenceCompat-->
+<!--            app:key="sync"-->
+<!--            app:title="@string/sync_title" />-->
+
+<!--        <SwitchPreferenceCompat-->
+<!--            app:dependency="sync"-->
+<!--            app:key="attachment"-->
+<!--            app:summaryOff="@string/attachment_summary_off"-->
+<!--            app:summaryOn="@string/attachment_summary_on"-->
+<!--            app:title="@string/attachment_title" />-->
+
+<!--    </PreferenceCategory>-->
+    <PreferenceCategory android:title="Связаться со мной">
+        <Preference android:title="Мой гитхаб"
+            android:icon="@android:drawable/ic_menu_view">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Karambasss" />
+        </Preference>
+        <Preference android:title="Мой ВК"
+            app:icon="@android:drawable/ic_menu_send"
+            >
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://vk.com/mkuznetsov19" />
+        </Preference>
+        <Preference
+            android:title="Написать мне на почту"
+            android:icon="@android:drawable/ic_dialog_email">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="mailto:m.papa.09@mail.ru" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Полезные ресурсы">
+        <Preference
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="Исходный код">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Karambasss/QuitNicotineDiplomaProgram" />
+        </Preference>
+        <Preference
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="Сайт моего университета">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://www.fa.ru/Pages/Home.aspx" />
+        </Preference>
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

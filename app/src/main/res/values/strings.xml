@@ -78,4 +78,18 @@
         <item>10000000</item>
         <item>20000000</item>
     </integer-array>
+    <!-- Preference Titles -->
+    <string name="messages_header">Сообщение</string>
+    <string name="sync_header">Синхронизация</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Ваша подпись</string>
+    <string name="reply_title">Действие ответа по умолчанию</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Периодическая синхронизация почты</string>
+    <string name="attachment_title">Загрузка входящих вложений</string>
+    <string name="attachment_summary_on">Автоматическая загрузка вложений для входящих электронных писем
+    </string>
+    <string name="attachment_summary_off">Загружайте вложения только по запросу вручную</string>
 </resources>

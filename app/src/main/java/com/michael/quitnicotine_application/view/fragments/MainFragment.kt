@@ -3,7 +3,6 @@ package com.michael.quitnicotine_application.view.fragments
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,9 +35,6 @@ class MainFragment : Fragment() {
         // Получаем данные из кэша о человеке
         val userData = getSharedPreferencesParsedObject()
         println("FragmentMainGotData: Username - ${userData?.getUserName()}; CigarettesCount - ${userData?.getCigarettesCount()}; PacketPrice - ${userData?.getPacketPrice()}")
-        //textView6.text = userData?.getUserName()
-        //textView7.text = userData?.getCigarettesCount().toString()
-        //textView8.text = userData?.getPacketPrice().toString()
 
         super.onViewCreated(view, savedInstanceState)
     }
