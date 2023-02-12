@@ -92,4 +92,5 @@
     <string name="attachment_summary_on">Автоматическая загрузка вложений для входящих электронных писем
     </string>
     <string name="attachment_summary_off">Загружайте вложения только по запросу вручную</string>
+
 </resources>

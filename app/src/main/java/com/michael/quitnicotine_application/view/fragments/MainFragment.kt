@@ -1,22 +1,26 @@
 package com.michael.quitnicotine_application.view.fragments
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.gson.Gson
+import com.google.android.material.tabs.TabLayoutMediator
 import com.michael.quitnicotine_application.R
-import com.michael.quitnicotine_application.constances.ShConstants
-import com.michael.quitnicotine_application.data.UserData
+import com.michael.quitnicotine_application.adapters.ViewPagerAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
     private lateinit var bottomNavigationView: BottomNavigationView
-    private lateinit var sharedPreferences: SharedPreferences
+
+    private val fragmentsList = listOf(
+        ProgressFragment.newInstance(),
+        ArFragment.newInstance(),
+        MotivationFragment.newInstance(),
+        AchievementFragment.newInstance()
+    )
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,27 +31,31 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         bottomNavigationView.visibility = View.VISIBLE
-        sharedPreferences = requireContext().getSharedPreferences(
-            ShConstants.SHARED_PREF_KEY,
-            Context.MODE_PRIVATE
+
+        val fragmentsListTitle = listOf(
+            "Прогресс",
+            "Дополненная реальность",
+            "Мотивация",
+            "Достижения"
         )
 
-        // Получаем данные из кэша о человеке
-        val userData = getSharedPreferencesParsedObject()
-        println("FragmentMainGotData: Username - ${userData?.getUserName()}; CigarettesCount - ${userData?.getCigarettesCount()}; PacketPrice - ${userData?.getPacketPrice()}")
+        val fragmentsListIcons = listOf(
+            R.drawable.ic_baseline_equalizer_24 ,
+            R.drawable.ic_baseline_camera_alt_24 ,
+            R.drawable.ic_baseline_insert_emoticon_24 ,
+            R.drawable.ic_baseline_emoji_events_24
+        )
+
+        val adapter: ViewPagerAdapter = ViewPagerAdapter(requireActivity(), fragmentsList)
+        viewPager2.adapter = adapter
+
+        TabLayoutMediator(tab_layout, viewPager2){
+            tab, position ->
+            tab.setIcon(fragmentsListIcons[position])
+            tab.text = fragmentsListTitle[position]
+        }.attach()
 
         super.onViewCreated(view, savedInstanceState)
-    }
-
-    private fun checkSharedPreferencesData() = sharedPreferences.contains(ShConstants.KEY_NAME_USER_DATA)
-
-    private fun getSharedPreferencesParsedObject(): UserData? {
-        if (checkSharedPreferencesData()){
-            val jsonData = sharedPreferences.getString(ShConstants.KEY_NAME_USER_DATA, null)
-            val gson = Gson()
-            return gson.fromJson(jsonData, UserData::class.java)
-        }
-        return null
     }
 
     companion object {
