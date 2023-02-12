@@ -9,6 +9,8 @@ import com.michael.quitnicotine_application.R
 import com.michael.quitnicotine_application.constances.ShConstants
 import com.michael.quitnicotine_application.view.fragments.FragmentAuth1
 import com.michael.quitnicotine_application.view.fragments.MainFragment
+import com.michael.quitnicotine_application.view.fragments.ProfileFragment
+import com.michael.quitnicotine_application.view.fragments.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +34,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         setNewFragment(fragment)
+
+        bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+
+                R.id.menu_main -> setNewFragment(MainFragment.newInstance())
+
+                R.id.menu_profile -> setNewFragment(ProfileFragment.newInstance())
+
+                R.id.menu_settings -> setNewFragment(SettingsFragment.newInstance())
+
+                else -> {}
+            }
+            true
+        }
     }
     // метод проверки кэша
     private fun checkSharedPreferencesData(): Boolean = sharedPreferences.contains(ShConstants.KEY_NAME_USER_DATA)

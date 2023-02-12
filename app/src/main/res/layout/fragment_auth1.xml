@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/view5"
         android:layout_width="match_parent"
         android:layout_height="1sp"
         android:layout_marginTop="140dp"
@@ -64,7 +64,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewProfile"
         android:layout_width="275dp"
         android:layout_height="59dp"
         android:layout_marginTop="48dp"
