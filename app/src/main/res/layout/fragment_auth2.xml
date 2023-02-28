@@ -28,7 +28,7 @@
         android:id="@+id/textView2"
         android:layout_width="331dp"
         android:layout_height="39dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="96dp"
         android:fontFamily="@font/jetbrains_mono_light_italic"
         android:text="Сколько сигарет вы выкуриваете в день?"
@@ -71,10 +71,9 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.455" />
 
     <EditText
         android:id="@+id/authPrice"
@@ -96,7 +95,7 @@
         android:id="@+id/button_auth1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="84dp"
         android:backgroundTint="#2196F3"
         android:fontFamily="@font/jetbrains_mono"
         android:text="Завершить"

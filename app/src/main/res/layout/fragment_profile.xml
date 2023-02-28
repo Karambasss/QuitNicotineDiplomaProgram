@@ -27,7 +27,7 @@
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="100dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,27 +36,27 @@
         android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="88dp"
+        android:layout_marginBottom="96dp"
         android:backgroundTint="#FA0404"
         android:text="Выход из профиля"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewProfile"
         android:layout_width="359dp"
         android:layout_height="250dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profile_constraint"
-            android:layout_width="match_parent"
+            android:layout_width="358dp"
             android:layout_height="match_parent">
 
             <TextView

@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.menu_profile -> setNewFragment(ProfileFragment.newInstance())
 
-               R.id.menu_settings -> setNewFragment(SettingsFragment())
+                R.id.menu_settings -> setNewFragment(SettingsFragment())
 
                 else -> {}
             }

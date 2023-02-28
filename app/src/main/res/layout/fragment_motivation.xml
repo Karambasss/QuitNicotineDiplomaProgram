@@ -11,7 +11,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="260dp"
         android:text="TODO_MOTIVATION"
         app:layout_constraintStart_toStartOf="parent"

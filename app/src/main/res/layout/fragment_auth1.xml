@@ -10,8 +10,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="216dp"
         android:fontFamily="@font/jetbrains_mono_extralight"
         android:text="Как вас зовут?"
         android:textAlignment="center"
@@ -31,6 +31,7 @@
         android:minHeight="48dp"
         android:textColorHint="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -38,7 +39,7 @@
         android:id="@+id/view4"
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="396dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +57,7 @@
         android:id="@+id/button_auth1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="#2196F3"
         android:fontFamily="@font/jetbrains_mono"
         android:text="Продолжить"
@@ -68,7 +69,7 @@
         android:id="@+id/textViewProfile"
         android:layout_width="275dp"
         android:layout_height="59dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/jetbrains_mono_extrabold_italic"
         android:paddingTop="10sp"
         android:text="Добро пожаловать"
@@ -77,7 +78,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
