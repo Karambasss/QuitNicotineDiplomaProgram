@@ -32,6 +32,13 @@ class ProfileFragment : Fragment() {
         )
         setProfileData(getSharedPreferencesParsedObject())
 
+        profileImage.setOnClickListener {
+            // TODO - обновление картинки от пользователя
+        }
+
+        editButton.setOnClickListener {
+            // TODO - редактирование
+        }
 
         exitButton.setOnClickListener {
             // Удаляем из кэша данные

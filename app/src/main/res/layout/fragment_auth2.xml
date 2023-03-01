@@ -6,6 +6,125 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.FragmentAuth2">
 
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="руб"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/goal2Price"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="за"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/goal2Name"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="на"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxGoal2"
+        app:layout_constraintTop_toBottomOf="@+id/goal1Day" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="62dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="96dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="дней"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/goal1Day"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <EditText
+        android:id="@+id/goal2Name"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:hint="Товар"
+        android:inputType="textPersonName|text"
+        android:minHeight="48dp"
+        android:textColorHint="#03A9F4"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/goal1Day" />
+
+    <EditText
+        android:id="@+id/goal1Day"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="24dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:hint="Кол-во"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="#03A9F4"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxGoal1"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <EditText
+        android:id="@+id/goal2Price"
+        android:layout_width="65dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="139dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:hint="Цена"
+        android:inputType="number"
+        android:maxLength="5"
+        android:minHeight="48dp"
+        android:textColorHint="#03A9F4"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGoal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/jetbrains_mono_bold"
+        android:text="Накопить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxGoal1" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/jetbrains_mono_light_italic"
+        android:text="Я хочу :"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
     <View
         android:id="@+id/view3"
         android:layout_width="match_parent"
@@ -19,7 +138,7 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="372dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,8 +147,8 @@
         android:id="@+id/textView2"
         android:layout_width="331dp"
         android:layout_height="39dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="84dp"
         android:fontFamily="@font/jetbrains_mono_light_italic"
         android:text="Сколько сигарет вы выкуриваете в день?"
         android:textAlignment="center"
@@ -54,9 +173,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <View
+        android:id="@+id/view6"
         android:layout_width="match_parent"
         android:layout_height="1sp"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="216dp"
         android:background="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -65,15 +185,14 @@
         android:id="@+id/textView3"
         android:layout_width="241dp"
         android:layout_height="27dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/jetbrains_mono_light_italic"
         android:text="Сколько стоит пачка?"
         android:textAlignment="center"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431" />
+        app:layout_constraintTop_toBottomOf="@+id/view6" />
 
     <EditText
         android:id="@+id/authPrice"
@@ -95,14 +214,14 @@
         android:id="@+id/button_auth1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
+        android:layout_marginTop="245dp"
         android:backgroundTint="#2196F3"
         android:fontFamily="@font/jetbrains_mono"
         android:text="Завершить"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
         android:id="@+id/textView5"
@@ -117,6 +236,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGoal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/jetbrains_mono_bold"
+        android:text="Не курить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
