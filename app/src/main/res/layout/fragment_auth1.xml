@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="216dp"
         android:fontFamily="@font/jetbrains_mono_extralight"
         android:text="Как вас зовут?"
@@ -23,7 +23,7 @@
         android:id="@+id/authName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="Введите свое имя"
@@ -31,7 +31,7 @@
         android:minHeight="48dp"
         android:textColorHint="#03A9F4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
