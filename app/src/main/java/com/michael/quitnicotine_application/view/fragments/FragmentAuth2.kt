@@ -16,7 +16,6 @@ import com.michael.quitnicotine_application.data.Achievement
 import com.michael.quitnicotine_application.data.UserData
 import kotlinx.android.synthetic.main.fragment_auth2.*
 import kotlinx.android.synthetic.main.fragment_auth2.button_auth1
-import kotlin.properties.Delegates
 
 class FragmentAuth2 : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences

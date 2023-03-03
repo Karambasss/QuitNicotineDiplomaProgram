@@ -1,13 +1,20 @@
 package com.michael.quitnicotine_application.view.fragments
 
+import android.Manifest
+import android.app.Activity.RESULT_OK
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.michael.quitnicotine_application.R
@@ -18,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 class ProfileFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var bottomNavigationView: BottomNavigationView
+    private val GALLERY_REQUEST = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +42,17 @@ class ProfileFragment : Fragment() {
         setProfileData(getSharedPreferencesParsedObject())
 
         profileImage.setOnClickListener {
-            // TODO - обновление картинки от пользователя
+            val permissionStatus = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+            Log.d("PermissionStatus", "$permissionStatus")
+            if (permissionStatus == PackageManager.PERMISSION_GRANTED){
+                val intentAvatarPicker = Intent(Intent.ACTION_PICK)
+                intentAvatarPicker.type = "image/*"
+                startActivityForResult(intentAvatarPicker, GALLERY_REQUEST)
+            }
+            else{
+                requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), GALLERY_REQUEST)
+            }
+
         }
 
         editButton.setOnClickListener {
@@ -60,6 +78,46 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode){
+            GALLERY_REQUEST -> {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    val intentAvatarPicker = Intent(Intent.ACTION_PICK)
+                    intentAvatarPicker.type = "image/*"
+                    startActivityForResult(intentAvatarPicker, GALLERY_REQUEST)
+                }
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            GALLERY_REQUEST -> {
+                if (resultCode == RESULT_OK ){
+                    // сохранение аватара в кэш а также его отображение сразу после выбора пользователем
+                    val selectedImage: Uri? = data?.data
+                    profileImage.setImageURI(selectedImage)
+
+                    val userData = getSharedPreferencesParsedObject()
+                    userData?.setAvatar(selectedImage.toString())
+
+                    val gson = Gson()
+                    val myJson = gson.toJson(userData)
+
+                    val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                    editor.putString(ShConstants.KEY_NAME_USER_DATA, myJson)
+                    editor.apply()
+                }
+            }
+        }
+    }
+
     private fun checkSharedPreferencesData() = sharedPreferences.contains(ShConstants.KEY_NAME_USER_DATA)
 
     private fun getSharedPreferencesParsedObject(): UserData?{
@@ -79,6 +137,13 @@ class ProfileFragment : Fragment() {
         profile_dayCount.text = userData?.getDayCount().toString()
         profile_savedMoney.text = userData?.getSavedMoney().toString()
         profile_savedCigarettes.text = userData?.getSavedCigarettes().toString()
+
+        if (userData?.getAvatar() == null){
+            profileImage.setImageResource(android.R.mipmap.sym_def_app_icon)
+        }
+        else{
+            profileImage.setImageURI(Uri.parse(userData.getAvatar()))
+        }
     }
 
     companion object {

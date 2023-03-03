@@ -12,6 +12,7 @@ class UserData(_name: String, _cigarettesCount: Int,
     private var cigarettesCount = _cigarettesCount  // количество сигарет, выкуренных пользователем за день
     private var packetPrice = _packetPrice  // цена пачки сигарет
     private var achievements = _achievements   // достижения
+    private var avatar: String? = null // аватар пользователя
 
     // Изменяющиеся данные - Цели пользователя
     private var goal1DayCount : Int? = null
@@ -45,6 +46,12 @@ class UserData(_name: String, _cigarettesCount: Int,
     fun getGoal2ProductName() = goal2ProductName
 
     fun getGoal2ProductPrice() = goal2ProductPrice
+
+    fun getAvatar() = avatar
+
+    fun setAvatar(_avatar: String){
+        avatar = _avatar
+    }
 
     // Изменение данных
     fun setUserName(_name : String) {
