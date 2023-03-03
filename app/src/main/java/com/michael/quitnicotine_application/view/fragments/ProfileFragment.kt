@@ -3,6 +3,7 @@ package com.michael.quitnicotine_application.view.fragments
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -71,6 +72,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setProfileData(userData: UserData?){
+        Log.d("CheckBoxCheckResult", "Данные целей пользователя: ${userData?.getGoal1DayCount()}, ${userData?.getGoal2ProductName()}, ${userData?.getGoal2ProductPrice()}")
         profile_name.text = userData?.getUserName()
         profile_cigarettesCount.text = userData?.getCigarettesCount().toString()
         profile_packetPrice.text = userData?.getPacketPrice().toString()

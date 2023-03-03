@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.gson.Gson
 import com.michael.quitnicotine_application.R
 import com.michael.quitnicotine_application.constances.ShConstants
@@ -15,12 +16,20 @@ import com.michael.quitnicotine_application.data.Achievement
 import com.michael.quitnicotine_application.data.UserData
 import kotlinx.android.synthetic.main.fragment_auth2.*
 import kotlinx.android.synthetic.main.fragment_auth2.button_auth1
+import kotlin.properties.Delegates
 
 class FragmentAuth2 : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var userName: String
     private var cigarettesCount: Int = 0
     private var packetPrice: Int = 0
+    private var checkBox1Flag: Boolean = false
+    private var checkBox2Flag: Boolean = false
+    private var goal1DayCount: Int = 0
+    private lateinit var goal2ProductName: String
+    private var goal2ProductPrice: Int = 0
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +63,46 @@ class FragmentAuth2 : Fragment() {
             }
         }
     }
+    // проверка того, что хотя бы один чекбокс выбран и его содержимое не пустое
+    private fun checkCheckBoxesResult() : Boolean {
+        checkBox1Flag = false
+        checkBox2Flag = false
+        if (checkBoxGoal1.isChecked){
+            if (goal1Day.length() == 0){
+                goal1Day.requestFocus()
+                goal1Day.error = "Введите кол-во дней"
+                return false
+            }
+            checkBox1Flag = true
+            goal1DayCount = goal1Day.text.toString().toInt()
+        }
+
+        if (checkBoxGoal2.isChecked){
+            if (goal2Name.length() == 0){
+                goal2Name.requestFocus()
+                goal2Name.error = "Введите товар"
+                return false
+            }
+            if (goal2Price.length() == 0){
+                goal2Price.requestFocus()
+                goal2Price.error = "Введите цену товара"
+                return false
+            }
+            checkBox2Flag = true
+            goal2ProductName = goal2Name.text.toString()
+            goal2ProductPrice = goal2Price.text.toString().toInt()
+        }
+        // Проверка на то, что ни один из чекбоксов не выбран - только тогда выдаем всплывающее сообщение!
+        if (!checkBox1Flag && !checkBox2Flag){
+            Toast.makeText(requireContext(), "Пожалуйста, выберите цель!", Toast.LENGTH_LONG).show()
+            checkBox1Flag = false
+            checkBox2Flag = false
+            return false
+        }
+
+        return true
+    }
+
     // проверка данных
    private fun checkAllFields() : Boolean {
         if (authNumber.length() == 0){
@@ -64,6 +113,9 @@ class FragmentAuth2 : Fragment() {
         if (authPrice.length() == 0){
             authPrice.requestFocus()
             authPrice.error = "Введите стоимость пачки"
+            return false
+        }
+        if (!checkCheckBoxesResult()){
             return false
         }
         return true
@@ -82,6 +134,14 @@ class FragmentAuth2 : Fragment() {
     // сохранение в кэш объекта
     private fun onSaveUserData(){
         val userData = onCreateUserData()
+
+        if (checkBox1Flag){
+            userData.setGoal1DayCount(goal1DayCount)
+        }
+        if (checkBox2Flag){
+            userData.setGoal2ProductName(goal2ProductName)
+            userData.setGoal2ProductPrice(goal2ProductPrice)
+        }
 
         val gson = Gson()
         val myJson = gson.toJson(userData)
