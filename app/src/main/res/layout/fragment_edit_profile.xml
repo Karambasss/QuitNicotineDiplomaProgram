@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.EditProfileFragment">
+
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="165dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="руб"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/goal2PriceEdit"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewProfile" />
+
+    <EditText
+        android:id="@+id/goal2PriceEdit"
+        android:layout_width="65dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="154dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:hint="Цена"
+        android:inputType="number"
+        android:maxLength="5"
+        android:minHeight="48dp"
+        android:textColorHint="#03A9F4"
+        app:layout_constraintStart_toEndOf="@+id/textView30"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewProfile" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="за"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/goal2NameEdit"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <EditText
+        android:id="@+id/goal2NameEdit"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:hint="Товар"
+        android:inputType="textPersonName|text"
+        android:minHeight="48dp"
+        android:textColorHint="#03A9F4"
+        app:layout_constraintStart_toEndOf="@+id/textView29"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="на"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxGoal2Edit"
+        app:layout_constraintTop_toBottomOf="@+id/goal1DayEdit" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGoal2Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/jetbrains_mono_bold"
+        android:text="Накопить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxGoal1Edit" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="62dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:text="дней"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/goal1DayEdit"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <EditText
+        android:id="@+id/goal1DayEdit"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="94dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/jetbrains_mono_light"
+        android:hint="Кол-во"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="#03A9F4"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxGoal1Edit"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewProfile" />
+
+    <CheckBox
+        android:id="@+id/checkBoxGoal1Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="94dp"
+        android:fontFamily="@font/jetbrains_mono_bold"
+        android:text="Не курить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewProfile" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/jetbrains_mono_extrabold"
+        android:text="Ваши цели"
+        android:textAlignment="center"
+        android:textColor="#E91E63"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewProfile" />
+
+    <ImageView
+        android:id="@+id/saveProfileChangesImageButton"
+        android:layout_width="33dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/ic_baseline_check_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/jetbrains_mono_extrabold"
+        android:text="Сведения о вашем профиле"
+        android:textAlignment="center"
+        android:textColor="#E91E63"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginTop="30dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewProfile"
+        android:layout_width="379dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profile_constraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="Введите кол-во сигарет"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textColorHint="#03A9F4"
+                app:layout_constraintStart_toEndOf="@+id/textView9"
+                app:layout_constraintTop_toBottomOf="@+id/editName"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <EditText
+                android:id="@+id/editName"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="7dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:fontFamily="@font/jetbrains_mono_light"
+                android:hint="Введите свое имя"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColorHint="#03A9F4"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="36dp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:text="Цена пачки :"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:text="Ваше имя :"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="44dp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:text="Кол-во сигарет:"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            <EditText
+                android:id="@+id/editPrice"
+                android:layout_width="215dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="18dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="Введите цену пачки, руб"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textColorHint="#03A9F4"
+                app:layout_constraintStart_toEndOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/editNumber"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/jetbrains_mono"
+        android:text="Редактирование профиля"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backToProfileImageButton"
+        android:layout_width="33dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_baseline_keyboard_return_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

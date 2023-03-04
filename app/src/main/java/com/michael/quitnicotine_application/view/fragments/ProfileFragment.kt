@@ -12,7 +12,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -44,6 +43,8 @@ class ProfileFragment : Fragment() {
         profileImage.setOnClickListener {
             val permissionStatus = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
             Log.d("PermissionStatus", "$permissionStatus")
+
+            // проверка на разрешения (если нет - запрашиваются, если уже есть - вызывается галерея, из которой можно выбрать аватар)
             if (permissionStatus == PackageManager.PERMISSION_GRANTED){
                 val intentAvatarPicker = Intent(Intent.ACTION_PICK)
                 intentAvatarPicker.type = "image/*"
@@ -56,7 +57,11 @@ class ProfileFragment : Fragment() {
         }
 
         editButton.setOnClickListener {
-            // TODO - редактирование
+            val fragment: Fragment = EditProfileFragment.newInstance()
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout, fragment)
+                commit()
+            }
         }
 
         exitButton.setOnClickListener {
@@ -99,6 +104,7 @@ class ProfileFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
             GALLERY_REQUEST -> {
+                Log.d("RESULT_CODE_STATUS", "$resultCode")
                 if (resultCode == RESULT_OK ){
                     // сохранение аватара в кэш а также его отображение сразу после выбора пользователем
                     val selectedImage: Uri? = data?.data
