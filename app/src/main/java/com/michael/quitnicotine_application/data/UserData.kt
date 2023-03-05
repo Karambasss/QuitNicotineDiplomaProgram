@@ -5,7 +5,7 @@ class UserData(_name: String, _cigarettesCount: Int,
                _achievements: MutableList<Achievement>) {
 
     // Константа
-    private val cigarettesInAPacket = 20    // сигарет в пачке
+    private val cigarettesInAPacket = 20.0    // сигарет в пачке
 
     // Изменяющиеся данные - Данные о пользователе
     private var userName = _name    // имя пользователя
@@ -13,6 +13,9 @@ class UserData(_name: String, _cigarettesCount: Int,
     private var packetPrice = _packetPrice  // цена пачки сигарет
     private var achievements = _achievements   // достижения
     private var avatar: String? = null // аватар пользователя
+
+    // Изменяющиеся данные - данные (день.месяц.год) регистрации пользователя
+    private var registrationTime: String? = null
 
     // Изменяющиеся данные - Цели пользователя
     private var goal1DayCount : Int? = null
@@ -49,6 +52,12 @@ class UserData(_name: String, _cigarettesCount: Int,
 
     fun getAvatar() = avatar
 
+    fun getRegistrationTime() = registrationTime
+
+    fun setRegistrationTime(_registrationTime: String){
+        registrationTime = _registrationTime
+    }
+
     fun setAvatar(_avatar: String){
         avatar = _avatar
     }
@@ -80,16 +89,16 @@ class UserData(_name: String, _cigarettesCount: Int,
 
     // Метод для обновления сэкономленных денег
     fun updateSavedMoney(){
-        savedMoney+= (packetPrice/(cigarettesInAPacket / cigarettesCount))
+        savedMoney = (dayCount * (packetPrice/(cigarettesInAPacket / cigarettesCount)))
     }
 
     // Метод для обновления количества не выкуренных сигарет
     fun updateSavedCigarettes(){
-        savedCigarettes+= (cigarettesCount * dayCount)
+        savedCigarettes = (cigarettesCount * dayCount)
     }
 
     // Метод дл обновления количества дней с момента отказа от курения
-    fun updateDayCount(newDay: Int){
-        dayCount += newDay
+    fun updateDayCount(_dayCount: Int){
+        dayCount = _dayCount
     }
 }

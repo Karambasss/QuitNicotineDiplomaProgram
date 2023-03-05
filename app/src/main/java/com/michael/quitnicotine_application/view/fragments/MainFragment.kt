@@ -18,6 +18,7 @@ class MainFragment : Fragment() {
         ProgressFragment.newInstance(),
         ArFragment.newInstance(),
         MotivationFragment.newInstance(),
+        IdeasFragment.newInstance(),
         AchievementFragment.newInstance()
     )
 
@@ -36,6 +37,7 @@ class MainFragment : Fragment() {
             "Прогресс",
             "Дополненная реальность",
             "Мотивация",
+            "Идеи",
             "Достижения"
         )
 
@@ -43,6 +45,7 @@ class MainFragment : Fragment() {
             R.drawable.ic_baseline_equalizer_24 ,
             R.drawable.ic_baseline_camera_alt_24 ,
             R.drawable.ic_baseline_insert_emoticon_24 ,
+            R.drawable.ic_baseline_lightbulb_24,
             R.drawable.ic_baseline_emoji_events_24
         )
 

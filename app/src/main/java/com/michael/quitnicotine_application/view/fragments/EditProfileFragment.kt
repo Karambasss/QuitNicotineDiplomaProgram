@@ -13,7 +13,6 @@ import com.google.gson.Gson
 import com.michael.quitnicotine_application.R
 import com.michael.quitnicotine_application.constances.ShConstants
 import com.michael.quitnicotine_application.data.UserData
-import kotlinx.android.synthetic.main.fragment_auth2.*
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 
 class EditProfileFragment : Fragment() {
@@ -120,6 +119,11 @@ class EditProfileFragment : Fragment() {
             editNumber.error = "Введите кол-во сигарет"
             return false
         }
+        if (editNumber.text.toString().toInt() == 0){
+            editNumber.requestFocus()
+            editNumber.error = "Введите число большее 0"
+            return false
+        }
         if (editPrice.length() == 0){
             editPrice.requestFocus()
             editPrice.error = "Введите стоимость пачки"
@@ -152,6 +156,8 @@ class EditProfileFragment : Fragment() {
         userData?.setUserName(userName)
         userData?.setCigarettesCount(cigarettesCount)
         userData?.setPacketPrice(packetPrice)
+        userData?.updateSavedCigarettes()
+        userData?.updateSavedMoney()
 
         val gson = Gson()
         val myJson = gson.toJson(userData)

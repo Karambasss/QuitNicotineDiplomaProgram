@@ -16,6 +16,11 @@ import com.michael.quitnicotine_application.data.Achievement
 import com.michael.quitnicotine_application.data.UserData
 import kotlinx.android.synthetic.main.fragment_auth2.*
 import kotlinx.android.synthetic.main.fragment_auth2.button_auth1
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
+import java.util.*
 
 class FragmentAuth2 : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
@@ -109,6 +114,11 @@ class FragmentAuth2 : Fragment() {
             authNumber.error = "Введите кол-во сигарет"
             return false
         }
+        if (authNumber.text.toString().toInt() == 0){
+            authNumber.requestFocus()
+            authNumber.error = "Введите число большее 0"
+            return false
+        }
         if (authPrice.length() == 0){
             authPrice.requestFocus()
             authPrice.error = "Введите стоимость пачки"
@@ -142,9 +152,36 @@ class FragmentAuth2 : Fragment() {
             userData.setGoal2ProductPrice(goal2ProductPrice)
         }
 
+        val format = SimpleDateFormat("dd.MM.yyyy")
+        val time = Calendar.getInstance().time
+        val currentDateTime = format.format(time)
+
+        Log.d("CurrentDateCheck", currentDateTime)
+        userData.setRegistrationTime(currentDateTime)
+
+        // Обновление кол-ва дней, сэкономленных денег, и кол-во невыкуренных сигарет сразу после успешной авторизации
+        val localDateNow = LocalDate.now()
+
+        val dateFormatInput = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+
+        val registrationTime = LocalDate.parse(currentDateTime, dateFormatInput)
+
+        val days = ChronoUnit.DAYS.between(registrationTime, localDateNow) + 1
+
+        // обновляем дни
+        userData.updateDayCount(days.toInt())
+
+        // обновляем кол-во денег сэкономленных
+        userData.updateSavedMoney()
+
+        // обновляем кол-во невыкуренных сигарет
+        userData.updateSavedCigarettes()
+
+        // Сохраняем данных на кэш
         val gson = Gson()
         val myJson = gson.toJson(userData)
         Log.d("jsonDataLog", myJson)
+
         sharedPreferences = requireContext().getSharedPreferences(ShConstants.SHARED_PREF_KEY, MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         editor.putString(ShConstants.KEY_NAME_USER_DATA, myJson)

@@ -3,15 +3,21 @@ package com.michael.quitnicotine_application.view
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.google.gson.Gson
 import com.michael.quitnicotine_application.R
 import com.michael.quitnicotine_application.constances.ShConstants
+import com.michael.quitnicotine_application.data.UserData
 import com.michael.quitnicotine_application.view.fragments.FragmentAuth1
 import com.michael.quitnicotine_application.view.fragments.MainFragment
 import com.michael.quitnicotine_application.view.fragments.ProfileFragment
 import com.michael.quitnicotine_application.view.fragments.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 
 class MainActivity : AppCompatActivity() {
     private lateinit var fragment: Fragment
@@ -25,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         // создаем фрагмент в зависимости от кэша, и если он существует то отрисовываем панель навигации )
         if (checkSharedPreferencesData()){
+            updateUserProgressAndSaveUserData(getSharedPreferencesParsedObject())
             fragment = MainFragment.newInstance()
             bottomNavigationView.visibility = View.VISIBLE
         }
@@ -59,5 +66,43 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.frame_layout, fragment)
             commit()
         }
+    }
+
+    private fun getSharedPreferencesParsedObject(): UserData?{
+        if (checkSharedPreferencesData()){
+            val jsonData = sharedPreferences.getString(ShConstants.KEY_NAME_USER_DATA, null)
+            val gson = Gson()
+            return gson.fromJson(jsonData, UserData::class.java)
+        }
+        return null
+    }
+
+    // Обновление кол-ва дней, сэкономленных денег, и кол-во невыкуренных сигарет (при заходе пользователя в приложение)
+    private fun updateUserProgressAndSaveUserData(userData: UserData?){
+        // Определяем разницу между датой регистрации пользователя и текущей датой (проще говоря, кол-во дней)
+        val localDateNow = LocalDate.now()
+
+        val dateFormatInput = DateTimeFormatter.ofPattern("dd.MM.yyyy")
+        val registrationTime = LocalDate.parse(userData?.getRegistrationTime(), dateFormatInput)
+
+        val days = ChronoUnit.DAYS.between(registrationTime, localDateNow) + 1
+        Log.d("DaysDifferenceTAG", "Разница между регистрацией и текущей датой: $days")
+
+        // обновляем дни
+        userData?.updateDayCount(days.toInt())
+
+        // обновляем кол-во денег сэкономленных
+        userData?.updateSavedMoney()
+
+        // обновляем кол-во невыкуренных сигарет
+        userData?.updateSavedCigarettes()
+
+        // Сохранение на кэш память
+        val gson = Gson()
+        val myJson = gson.toJson(userData)
+
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.putString(ShConstants.KEY_NAME_USER_DATA, myJson)
+        editor.apply()
     }
 }

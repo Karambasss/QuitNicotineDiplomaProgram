@@ -136,6 +136,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setProfileData(userData: UserData?){
+        Log.d("CheckDateOfRegFromCache","Дата регистрации пользователя: ${userData?.getRegistrationTime()}")
         Log.d("CheckBoxCheckResult", "Данные целей пользователя: ${userData?.getGoal1DayCount()}, ${userData?.getGoal2ProductName()}, ${userData?.getGoal2ProductPrice()}")
         profile_name.text = userData?.getUserName()
         profile_cigarettesCount.text = userData?.getCigarettesCount().toString()
