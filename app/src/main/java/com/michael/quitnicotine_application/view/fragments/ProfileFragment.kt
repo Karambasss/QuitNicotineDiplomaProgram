@@ -2,6 +2,7 @@ package com.michael.quitnicotine_application.view.fragments
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -12,6 +13,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,6 +27,8 @@ class ProfileFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var bottomNavigationView: BottomNavigationView
     private val GALLERY_REQUEST = 1
+    private var lastClickTime: Long = 0
+    private val MIN_DELAY_TIME = 1500
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,19 +45,23 @@ class ProfileFragment : Fragment() {
         setProfileData(getSharedPreferencesParsedObject())
 
         profileImage.setOnClickListener {
-            val permissionStatus = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
-            Log.d("PermissionStatus", "$permissionStatus")
-
-            // проверка на разрешения (если нет - запрашиваются, если уже есть - вызывается галерея, из которой можно выбрать аватар)
-            if (permissionStatus == PackageManager.PERMISSION_GRANTED){
-                val intentAvatarPicker = Intent(Intent.ACTION_PICK)
-                intentAvatarPicker.type = "image/*"
-                startActivityForResult(intentAvatarPicker, GALLERY_REQUEST)
+            if (isFastClick()){
+                return@setOnClickListener
             }
             else{
-                requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), GALLERY_REQUEST)
-            }
+                val permissionStatus = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+                Log.d("PermissionStatus", "$permissionStatus")
 
+                // проверка на разрешения (если нет - запрашиваются, если уже есть - вызывается галерея, из которой можно выбрать аватар)
+                if (permissionStatus == PackageManager.PERMISSION_GRANTED){
+                    val intentAvatarPicker = Intent(Intent.ACTION_PICK)
+                    intentAvatarPicker.type = "image/*"
+                    startActivityForResult(intentAvatarPicker, GALLERY_REQUEST)
+                }
+                else{
+                    requestPermissions(arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), GALLERY_REQUEST)
+                }
+            }
         }
 
         editButton.setOnClickListener {
@@ -65,20 +73,28 @@ class ProfileFragment : Fragment() {
         }
 
         exitButton.setOnClickListener {
-            // Удаляем из кэша данные
-            val editor: SharedPreferences.Editor = sharedPreferences.edit()
-            editor.clear()
-            editor.apply()
+            val alertDialogBuilder = AlertDialog.Builder(requireContext())
+            alertDialogBuilder.setTitle("ВНИМАНИЕ!")
+            alertDialogBuilder.setMessage("Вы действительно хотите выйти?")
+            alertDialogBuilder.setNegativeButton("Нет", null)
+            alertDialogBuilder.setPositiveButton("Да"){
+                    _, _ ->
+                // Удаляем из кэша данные
+                val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                editor.clear()
+                editor.apply()
 
-            // Переходим на фрагмент авторизации))))
-            val fragment: Fragment = FragmentAuth1.newInstance()
-            parentFragmentManager.beginTransaction().apply {
-                replace(R.id.frame_layout, fragment)
-                commit()
+                // Переходим на фрагмент авторизации))))
+                val fragment: Fragment = FragmentAuth1.newInstance()
+                parentFragmentManager.beginTransaction().apply {
+                    replace(R.id.frame_layout, fragment)
+                    commit()
+                }
+                bottomNavigationView.menu.findItem(R.id.menu_main).isChecked = true
+                bottomNavigationView.visibility = View.INVISIBLE
             }
-            bottomNavigationView.menu.findItem(R.id.menu_main).isChecked = true
-            bottomNavigationView.visibility = View.INVISIBLE
-
+            alertDialogBuilder.setCancelable(true)
+            alertDialogBuilder.show()
         }
         super.onViewCreated(view, savedInstanceState)
     }
@@ -151,6 +167,16 @@ class ProfileFragment : Fragment() {
         else{
             profileImage.setImageURI(Uri.parse(userData.getAvatar()))
         }
+    }
+
+    private fun isFastClick() : Boolean{
+        var flag = true
+        val currentClickTime = System.currentTimeMillis()
+        if ((currentClickTime - lastClickTime) >= MIN_DELAY_TIME){
+            flag = false
+        }
+        lastClickTime = currentClickTime
+        return flag
     }
 
     companion object {
