@@ -93,4 +93,50 @@
     </string>
     <string name="attachment_summary_off">Загружайте вложения только по запросу вручную</string>
 
+    <!-- Категории для мотивации -->
+    <string-array name="category_names">
+        <item>Автотовары</item>
+        <item>Дача и сад</item>
+        <item>Спорт и отдых</item>
+        <item>Товары ИКЕА</item>
+        <item>Для школы и офиса</item>
+        <item>Красота</item>
+        <item>Игрушки</item>
+        <item>Книги</item>
+        <item>Парфюмерия</item>
+        <item>Одежда</item>
+        <item>Бытовая техника</item>
+        <item>Бытовая химия</item>
+        <item>Мебель</item>
+        <item>Зоотовары</item>
+        <item>Цветы</item>
+        <item>Умная колонка</item>
+        <item>Ноутбуки</item>
+        <item>Смартфоны</item>
+        <item>Гейминг</item>
+        <item>Музыка</item>
+    </string-array>
+<!--    <array name="icons">-->
+<!--        <item>@drawable/ic_baseline_directions_car_24</item>-->
+<!--        <item>@drawable/ic_baseline_local_florist_24</item>-->
+<!--        <item>@drawable/ic_baseline_directions_bike_24</item>-->
+<!--        <item>@drawable/ic_baseline_sensor_window_24</item>-->
+<!--        <item>@drawable/ic_baseline_school_24</item>-->
+<!--        <item>@drawable/lipstick_svgrepo_com</item>-->
+<!--        <item>@drawable/ic_baseline_child_care_24</item>-->
+<!--        <item>@drawable/ic_baseline_menu_book_24</item>-->
+<!--        <item>@drawable/perfume_svgrepo_com</item>-->
+<!--        <item>@drawable/clothes_svgrepo_com</item>-->
+<!--        <item>@drawable/washing_machine_svgrepo_com</item>-->
+<!--        <item>@drawable/chemicals_flasks_svgrepo_com</item>-->
+<!--        <item>@drawable/furniture_svgrepo_com</item>-->
+<!--        <item>@drawable/cat_4_svgrepo_com</item>-->
+<!--        <item>@drawable/flowers_flower_svgrepo_com</item>-->
+<!--        <item>@drawable/music_speaker_svgrepo_com</item>-->
+<!--        <item>@drawable/laptop_svgrepo_com</item>-->
+<!--        <item>@drawable/ic_baseline_phone_iphone_24</item>-->
+<!--        <item>@drawable/gaming_pad_01_svgrepo_com</item>-->
+<!--        <item>@drawable/music_svgrepo_com</item>-->
+<!--    </array>-->
+
 </resources>
