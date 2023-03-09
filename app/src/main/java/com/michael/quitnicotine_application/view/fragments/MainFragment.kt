@@ -35,7 +35,7 @@ class MainFragment : Fragment() {
 
         val fragmentsListTitle = listOf(
             "Прогресс",
-            "Дополненная реальность",
+            "AR",
             "Мотивация",
             "Идеи",
             "Достижения"

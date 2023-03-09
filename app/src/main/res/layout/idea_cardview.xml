@@ -32,17 +32,17 @@
 
             <TextView
                 android:id="@+id/idea_name"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginStart="70dp"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
                 android:layout_marginTop="14dp"
-                android:layout_marginEnd="70dp"
+                android:layout_marginEnd="40dp"
                 android:fontFamily="@font/jetbrains_mono_extrabold"
                 android:text="Экономия денег"
                 android:textAlignment="center"
                 android:textColor="#976262"
-                android:textSize="19sp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_expendableIcon"
                 app:layout_constraintStart_toEndOf="@+id/imageView_ideaIcon"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,6 +50,7 @@
                 android:id="@+id/expandableLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,6 +73,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView_expendableIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
