@@ -101,4 +101,16 @@ class UserData(_name: String, _cigarettesCount: Int,
     fun updateDayCount(_dayCount: Int){
         dayCount = _dayCount
     }
+
+    fun updateAchievements(_achievements: MutableList<Achievement>){
+        achievements = _achievements
+    }
+
+    fun sortAchievements(){
+        achievements.sortBy {
+            it.getAchievementStatus()
+            it.getAchievementName()
+            it.getCondition()
+        }
+    }
 }

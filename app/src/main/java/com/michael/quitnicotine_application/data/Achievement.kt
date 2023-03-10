@@ -8,7 +8,7 @@ class Achievement(
     private var condition = _condition   // требуемое условие
     private var achievementStatus = false   // статус (выполнено или нет)
 
-    //TODO потом добавить поле картику (private var achievementImage = image из конструктора) и его getter.
+    private var progressPercent: Int = 0
 
     fun getAchievementName() = achievementName
 
@@ -16,8 +16,11 @@ class Achievement(
 
     fun getCondition() = condition
 
-    // Метод для обновления статуса
-    fun updateStatus(userCondition: Int){
+    fun getProgressPercent() = progressPercent
+
+    // Метод для обновления статуса и прогресса
+    fun updateStatusAndProgress(userCondition: Int){
         achievementStatus = condition == userCondition
+        progressPercent = (userCondition * 100) / condition
     }
 }
