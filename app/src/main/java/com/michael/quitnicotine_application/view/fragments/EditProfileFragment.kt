@@ -159,6 +159,9 @@ class EditProfileFragment : Fragment() {
         userData?.updateSavedCigarettes()
         userData?.updateSavedMoney()
 
+        // обновление достижений
+        updateAchievements(userData)
+
         val gson = Gson()
         val myJson = gson.toJson(userData)
         Log.d("jsonDataLog", myJson)
@@ -166,6 +169,53 @@ class EditProfileFragment : Fragment() {
         val editor: SharedPreferences.Editor = sharedPreferences.edit()
         editor.putString(ShConstants.KEY_NAME_USER_DATA, myJson)
         editor.apply()
+    }
+
+    private fun updateAchievements(userData: UserData?){
+        val dayCount = userData?.getDayCount()
+        val cigarettesSaved = userData?.getSavedCigarettes()
+        val moneySaved = userData?.getSavedMoney()
+
+        val achievementsList = userData?.getAchievements()
+        //0..7 - ачивки за дни
+        //8..17 - ачивки за сигареты
+        //18..len()-1 - ачивки за деньги
+        for (i in 0 until achievementsList!!.size){
+            when (i){
+                in 0..8 ->{
+                    if (!achievementsList[i].getAchievementStatus()){
+                        if (dayCount != null) {
+                            achievementsList[i].updateStatusAndProgress(dayCount)
+                        }
+                    }
+                }
+                in 9..19 ->{
+                    if (!achievementsList[i].getAchievementStatus()){
+                        if (cigarettesSaved != null) {
+                            achievementsList[i].updateStatusAndProgress(cigarettesSaved)
+                        }
+                    }
+                    else{
+                        if (cigarettesSaved != null) {
+                            achievementsList[i].updateStatusAndProgress(cigarettesSaved)
+                        }
+                    }
+                }
+                in 20..32 ->{
+                    if (!achievementsList[i].getAchievementStatus()){
+                        if (moneySaved != null) {
+                            achievementsList[i].updateStatusAndProgress(moneySaved.toInt())
+                        }
+                    }
+                    else{
+                        if (moneySaved != null) {
+                            achievementsList[i].updateStatusAndProgress(moneySaved.toInt())
+                        }
+                    }
+                }
+            }
+        }
+        userData.updateAchievements(achievementsList)
     }
 
     private fun checkSharedPreferencesData() = sharedPreferences.contains(ShConstants.KEY_NAME_USER_DATA)

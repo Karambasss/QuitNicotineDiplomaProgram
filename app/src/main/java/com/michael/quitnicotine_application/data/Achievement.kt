@@ -20,7 +20,13 @@ class Achievement(
 
     // Метод для обновления статуса и прогресса
     fun updateStatusAndProgress(userCondition: Int){
-        achievementStatus = condition == userCondition
-        progressPercent = (userCondition * 100) / condition
+        achievementStatus = userCondition >= condition
+
+        val progress =  (userCondition * 100) / condition
+        progressPercent = if (progress >= 100){
+            100
+        } else{
+            progress
+        }
     }
 }

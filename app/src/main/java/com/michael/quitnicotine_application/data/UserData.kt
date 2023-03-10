@@ -107,10 +107,8 @@ class UserData(_name: String, _cigarettesCount: Int,
     }
 
     fun sortAchievements(){
-        achievements.sortBy {
-            it.getAchievementStatus()
-            it.getAchievementName()
-            it.getCondition()
+        achievements.sortByDescending {
+            it.getProgressPercent()
         }
     }
 }

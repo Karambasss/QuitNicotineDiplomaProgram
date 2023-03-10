@@ -14,4 +14,7 @@
     
     <color name="blueBlack">#111f28</color>
     <color name="tanAccent">#e3cbd3</color>
+
+    <color name="progressNotCompleted">#298AF1</color>
+    <color name="progressCompleted">#0AAF67</color>
 </resources>
