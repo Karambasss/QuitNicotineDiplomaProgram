@@ -54,6 +54,8 @@ class UserData(_name: String, _cigarettesCount: Int,
 
     fun getRegistrationTime() = registrationTime
 
+    fun getSavedMoneyForADay() = (packetPrice/(cigarettesInAPacket / cigarettesCount))
+
     fun setRegistrationTime(_registrationTime: String){
         registrationTime = _registrationTime
     }

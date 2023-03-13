@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -69,6 +70,42 @@ class ProfileFragment : Fragment() {
                 replace(R.id.frame_layout, fragment)
                 commit()
             }
+        }
+
+        profile_savedMoney.setOnClickListener {
+            // Способ передачи данных через Bundle - наподобие intent.putExtra()
+            val bundle = Bundle()
+            bundle.putInt("progressParamsTagBundle", 1)
+
+            // Фрагмент, который будет запущен, ставим ему в аргументы данные Bundle
+            val fragment = ProgressParamsDetailFragment.newInstance()
+            fragment.arguments = bundle
+
+            // Переходим на новый фрагмент
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout, fragment)
+                commit()
+            }
+        }
+
+        profile_savedCigarettes.setOnClickListener {
+            // Способ передачи данных через Bundle - наподобие intent.putExtra()
+            val bundle = Bundle()
+            bundle.putInt("progressParamsTagBundle", 2)
+
+            // Фрагмент, который будет запущен, ставим ему в аргументы данные Bundle
+            val fragment = ProgressParamsDetailFragment.newInstance()
+            fragment.arguments = bundle
+
+            // Переходим на новый фрагмент
+            parentFragmentManager.beginTransaction().apply {
+                replace(R.id.frame_layout, fragment)
+                commit()
+            }
+        }
+
+        profile_dayCount.setOnClickListener {
+            Toast.makeText(requireContext(), "\tТы огромный молодец!\n\t\tПобеда уже близка!", Toast.LENGTH_SHORT).show()
         }
 
         exitButton.setOnClickListener {

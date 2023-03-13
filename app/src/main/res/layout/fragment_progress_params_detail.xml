@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.ProgressParamsDetailFragment">
+
+    <TextView
+        android:id="@+id/typeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/jetbrains_mono_bold"
+        android:text="6100.29"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingImageView" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingTextView" />
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="140dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="6dp"
+        android:background="#2196F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingTextView" />
+
+    <TextView
+        android:id="@+id/headingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/jetbrains_mono"
+        android:text="Сэкономлено"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backToProfileImageButton2"
+        android:layout_width="33dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_baseline_keyboard_return_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/headingImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="70dp"
+        android:src="@drawable/ic_baseline_monetization_on_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+    <ImageView
+        android:id="@+id/typeImageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="121dp"
+        android:src="@drawable/ruble_svgrepo_com"
+        app:layout_constraintStart_toEndOf="@+id/typeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/view8" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewDetailParams"
+        android:layout_width="379dp"
+        android:layout_height="294dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/typeTextView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/progressTextForYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:text="руб./год"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/progressDataForYear"
+                app:layout_constraintTop_toBottomOf="@+id/progressTextForMonth" />
+
+            <TextView
+                android:id="@+id/progressTextForMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:text="руб./месяц"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/progressDataForMonth"
+                app:layout_constraintTop_toBottomOf="@+id/progressTextForWeek" />
+
+            <TextView
+                android:id="@+id/progressTextForDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="23dp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:text="руб./день"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/progressDataForDay"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/progressDataForDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/jetbrains_mono_bold"
+                android:text="190.29"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/progressDataForWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/jetbrains_mono_bold"
+                android:text="2000.29"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressTextForDay" />
+
+            <TextView
+                android:id="@+id/progressTextForWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/jetbrains_mono"
+                android:text="руб./неделю"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorGrey"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/progressDataForWeek"
+                app:layout_constraintTop_toBottomOf="@+id/progressTextForDay" />
+
+            <TextView
+                android:id="@+id/progressDataForMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/jetbrains_mono_bold"
+                android:text="5000.29"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressDataForWeek" />
+
+            <TextView
+                android:id="@+id/progressDataForYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/jetbrains_mono_bold"
+                android:text="15000.29"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressDataForMonth" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
