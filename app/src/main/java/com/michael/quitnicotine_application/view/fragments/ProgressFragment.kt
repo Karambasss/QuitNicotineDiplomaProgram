@@ -55,8 +55,14 @@ class ProgressFragment : Fragment() {
             circularProgressBar.progress = userData.getGoal1ProgressPercent().toFloat()
             goalProgress.text = userData.getGoal1ProgressPercent().toString() + "%"
             if (userData.getGoal1AchievementStatus()){
+                circularProgressBar.progressBarColor = Color.parseColor("#0AAF67")
                 view11.setBackgroundColor(Color.parseColor("#0AAF67"))
                 headingTextView2.text = "Вы достигли цели"
+            }
+            else{
+                circularProgressBar.progressBarColor = Color.parseColor("#298AF1")
+                view11.setBackgroundColor(Color.parseColor("#298AF1"))
+                headingTextView2.text = "Пройдено вами до цели"
             }
         }
         else if (userData?.getGoal2ProductName() != null && userData.getGoal2ProductPrice() != null){
@@ -64,8 +70,14 @@ class ProgressFragment : Fragment() {
             circularProgressBar.progress = userData.getGoal2ProgressPercent().toFloat()
             goalProgress.text = userData.getGoal2ProgressPercent().toString() + "%"
             if (userData.getGoal2AchievementStatus()){
+                circularProgressBar.progressBarColor = Color.parseColor("#0AAF67")
                 view11.setBackgroundColor(Color.parseColor("#0AAF67"))
                 headingTextView2.text = "Вы достигли цель"
+            }
+            else{
+                circularProgressBar.progressBarColor = Color.parseColor("#298AF1")
+                view11.setBackgroundColor(Color.parseColor("#298AF1"))
+                headingTextView2.text = "Пройдено вами до цели"
             }
         }
     }
@@ -95,8 +107,14 @@ class ProgressFragment : Fragment() {
                 circularProgressBar.progress = userData?.getGoal1ProgressPercent()!!.toFloat()
                 goalProgress.text = userData.getGoal1ProgressPercent().toString() + "%"
                 if (userData.getGoal1AchievementStatus()){
+                    circularProgressBar.progressBarColor = Color.parseColor("#0AAF67")
                     view11.setBackgroundColor(Color.parseColor("#0AAF67"))
                     headingTextView2.text = "Вы достигли цели"
+                }
+                else{
+                    circularProgressBar.progressBarColor = Color.parseColor("#298AF1")
+                    view11.setBackgroundColor(Color.parseColor("#298AF1"))
+                    headingTextView2.text = "Пройдено вами до цели"
                 }
             }
             2 -> {
@@ -104,8 +122,14 @@ class ProgressFragment : Fragment() {
                 circularProgressBar.progress = userData?.getGoal2ProgressPercent()!!.toFloat()
                 goalProgress.text = userData.getGoal2ProgressPercent().toString() + "%"
                 if (userData.getGoal2AchievementStatus()){
+                    circularProgressBar.progressBarColor = Color.parseColor("#0AAF67")
                     view11.setBackgroundColor(Color.parseColor("#0AAF67"))
                     headingTextView2.text = "Вы достигли цель"
+                }
+                else{
+                    circularProgressBar.progressBarColor = Color.parseColor("#298AF1")
+                    view11.setBackgroundColor(Color.parseColor("#298AF1"))
+                    headingTextView2.text = "Пройдено вами до цели"
                 }
             }
         }
