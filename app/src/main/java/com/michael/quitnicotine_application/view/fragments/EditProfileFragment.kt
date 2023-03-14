@@ -77,6 +77,11 @@ class EditProfileFragment : Fragment() {
                 goal1DayEdit.error = "Введите кол-во дней"
                 return false
             }
+            if (goal1DayEdit.text.toString().toInt() == 0){
+                goal1DayEdit.requestFocus()
+                goal1DayEdit.error = "Введите число большее 0"
+                return false
+            }
             checkBox1Flag = true
             goal1DayCount = goal1DayEdit.text.toString().toInt()
         }
@@ -90,6 +95,11 @@ class EditProfileFragment : Fragment() {
             if (goal2PriceEdit.length() == 0){
                 goal2PriceEdit.requestFocus()
                 goal2PriceEdit.error = "Введите цену товара"
+                return false
+            }
+            if (goal2PriceEdit.text.toString().toInt() == 0){
+                goal2PriceEdit.requestFocus()
+                goal2PriceEdit.error = "Введите число большее 0"
                 return false
             }
             checkBox2Flag = true
@@ -139,20 +149,6 @@ class EditProfileFragment : Fragment() {
     private fun onSaveUserData(){
         val userData = getSharedPreferencesParsedObject()
 
-        if (checkBox1Flag){
-            userData?.setGoal1DayCount(goal1DayCount)
-        }
-        else{
-            userData?.setGoal1DayCount(null)
-        }
-        if (checkBox2Flag){
-            userData?.setGoal2ProductName(goal2ProductName)
-            userData?.setGoal2ProductPrice(goal2ProductPrice)
-        }
-        else{
-            userData?.setGoal2ProductName(null)
-            userData?.setGoal2ProductPrice(null)
-        }
         userData?.setUserName(userName)
         userData?.setCigarettesCount(cigarettesCount)
         userData?.setPacketPrice(packetPrice)
@@ -161,6 +157,9 @@ class EditProfileFragment : Fragment() {
 
         // обновление достижений
         updateAchievements(userData)
+
+        // обновление статуса и прогресса целей
+        updateGoals(userData)
 
         val gson = Gson()
         val myJson = gson.toJson(userData)
@@ -216,6 +215,35 @@ class EditProfileFragment : Fragment() {
             }
         }
         userData.updateAchievements(achievementsList)
+    }
+
+    private fun updateGoals(userData: UserData?){
+        if (checkBox1Flag){
+            userData?.setGoal1DayCount(goal1DayCount)
+
+            val dayCount = userData?.getDayCount()
+            if (dayCount != null){
+                userData.updateGoal1StatusAndProgress(dayCount)
+            }
+        }
+        else{
+            userData?.setGoal1DayCount(null)
+            userData?.updateGoal1StatusAndProgress(null)
+        }
+        if (checkBox2Flag){
+            userData?.setGoal2ProductName(goal2ProductName)
+            userData?.setGoal2ProductPrice(goal2ProductPrice)
+
+            val moneySaved = userData?.getSavedMoney()
+            if (moneySaved != null){
+                userData.updateGoal2StatusAndProgress(moneySaved.toInt())
+            }
+        }
+        else{
+            userData?.setGoal2ProductName(null)
+            userData?.setGoal2ProductPrice(null)
+            userData?.updateGoal2StatusAndProgress(null)
+        }
     }
 
     private fun checkSharedPreferencesData() = sharedPreferences.contains(ShConstants.KEY_NAME_USER_DATA)

@@ -7,12 +7,81 @@
     tools:context=".view.fragments.ProgressFragment">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/goalName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="248dp"
-        android:text="TODO_PROGRESS"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/jetbrains_mono_bold"
+        android:text="Не курить 5 дней"
+        android:textAlignment="center"
+        android:textColor="@color/orange"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingTextView2" />
+
+    <View
+        android:id="@+id/view11"
+        android:layout_width="80dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goalProgress" />
+
+    <TextView
+        android:id="@+id/goalProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="70dp"
+        android:fontFamily="@font/jetbrains_mono_bold"
+        android:text="50%"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/circularProgressBar"
+        android:layout_width="364dp"
+        android:layout_height="362dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        app:cpb_background_progressbar_color="#b6bbd8"
+        app:cpb_background_progressbar_width="10dp"
+        app:cpb_progress="50"
+        app:cpb_progress_direction="to_right"
+        app:cpb_progress_max="100"
+        app:cpb_progressbar_color="@color/progressCompleted"
+        app:cpb_progressbar_width="20dp"
+        app:cpb_round_border="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/headingTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/jetbrains_mono"
+        android:text="Пройдено вами до цели"
+        android:textAlignment="center"
+        android:textColor="@color/colorBest"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circularProgressBar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

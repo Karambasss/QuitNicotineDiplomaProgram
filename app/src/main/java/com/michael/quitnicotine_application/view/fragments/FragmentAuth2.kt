@@ -77,6 +77,11 @@ class FragmentAuth2 : Fragment() {
                 goal1Day.error = "Введите кол-во дней"
                 return false
             }
+            if (goal1Day.text.toString().toInt() == 0){
+                goal1Day.requestFocus()
+                goal1Day.error = "Введите число большее 0"
+                return false
+            }
             checkBox1Flag = true
             goal1DayCount = goal1Day.text.toString().toInt()
         }
@@ -90,6 +95,11 @@ class FragmentAuth2 : Fragment() {
             if (goal2Price.length() == 0){
                 goal2Price.requestFocus()
                 goal2Price.error = "Введите цену товара"
+                return false
+            }
+            if (goal2Price.text.toString().toInt() == 0){
+                goal2Price.requestFocus()
+                goal2Price.error = "Введите число большее 0"
                 return false
             }
             checkBox2Flag = true
@@ -144,14 +154,6 @@ class FragmentAuth2 : Fragment() {
     private fun onSaveUserData(){
         val userData = onCreateUserData()
 
-        if (checkBox1Flag){
-            userData.setGoal1DayCount(goal1DayCount)
-        }
-        if (checkBox2Flag){
-            userData.setGoal2ProductName(goal2ProductName)
-            userData.setGoal2ProductPrice(goal2ProductPrice)
-        }
-
         val format = SimpleDateFormat("dd.MM.yyyy")
         val time = Calendar.getInstance().time
         val currentDateTime = format.format(time)
@@ -179,6 +181,17 @@ class FragmentAuth2 : Fragment() {
 
         // обновление достижений
         updateAchievements(userData)
+
+        // заполнение целей и обновление их статуса и прогресса
+        if (checkBox1Flag){
+            userData.setGoal1DayCount(goal1DayCount)
+            userData.updateGoal1StatusAndProgress(userData.getDayCount())
+        }
+        if (checkBox2Flag){
+            userData.setGoal2ProductName(goal2ProductName)
+            userData.setGoal2ProductPrice(goal2ProductPrice)
+            userData.updateGoal2StatusAndProgress(userData.getSavedMoney().toInt())
+        }
 
         // Сохраняем данных на кэш
         val gson = Gson()

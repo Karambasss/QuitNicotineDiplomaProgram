@@ -100,6 +100,9 @@ class MainActivity : AppCompatActivity() {
         // обновление достижений
         updateAchievements(userData)
 
+        // обновление статуса и прогресса целей
+        updateGoals(userData)
+
         // Сохранение на кэш память
         val gson = Gson()
         val myJson = gson.toJson(userData)
@@ -145,5 +148,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
         userData.updateAchievements(achievementsList)
+    }
+
+    private fun updateGoals(userData: UserData?){
+        if (userData?.getGoal1DayCount() != null){
+            if (!userData.getGoal1AchievementStatus()){
+                val dayCount = userData.getDayCount()
+                userData.updateGoal1StatusAndProgress(dayCount)
+            }
+        }
+        if (userData?.getGoal2ProductName() != null && userData.getGoal2ProductPrice() != null){
+            if (!userData.getGoal2AchievementStatus()){
+                val moneySaved = userData.getSavedMoney()
+                userData.updateGoal2StatusAndProgress(moneySaved.toInt())
+            }
+        }
     }
 }
