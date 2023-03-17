@@ -201,7 +201,15 @@ class ProfileFragment : Fragment() {
             profileImage.setImageResource(android.R.mipmap.sym_def_app_icon)
         }
         else{
-            profileImage.setImageURI(Uri.parse(userData.getAvatar()))
+            // Проверка на то, что пользователь отказался от разрешения самостоятельно уже после того, как настроил аватар
+            val permissionStatus = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+            if (permissionStatus == PackageManager.PERMISSION_GRANTED){
+                profileImage.setImageURI(Uri.parse(userData.getAvatar()))
+            }
+            else{
+                userData.setAvatar(null)
+                profileImage.setImageResource(android.R.mipmap.sym_def_app_icon)
+            }
         }
     }
 

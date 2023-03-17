@@ -6,14 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.ArFragment">
 
+    <TextView
+        android:id="@+id/textViewCitates"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/jetbrains_mono"
+        android:text="-Настоящее лицо табака - это болезнь, смерть и ужас, а не гламур и утонченность, которые табачная индустрия пытается изобразить. \n-Дэвид Бирн."
+        android:textAlignment="viewStart"
+        android:textColor="#F3830C"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view10" />
+
+    <View
+        android:id="@+id/view10"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginTop="32dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="252dp"
-        android:text="TODO_AR"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/jetbrains_mono_medium"
+        android:text="Для того, чтобы наглядно показать вам вред, который наносит курение, а также осознать то, что вы сделали правильный выбор, отказавшись от этой пагубной привычки, мной было создано окно дополненной реальности (AR), в котором вы сможете визуально увидеть пагубные вещества, содержащиеся в сигарете. Если вы готовы к этому, нажмите на икноку камеры, расположенную ниже."
+        android:textAlignment="viewStart"
+        android:textColor="@color/progressNotCompleted"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/openArModelButton"
+        android:layout_width="125dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="90dp"
+        android:src="@drawable/photo_camera_svgrepo_com"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCitates" />
 </androidx.constraintlayout.widget.ConstraintLayout>

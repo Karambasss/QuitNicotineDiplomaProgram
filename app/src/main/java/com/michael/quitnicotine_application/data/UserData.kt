@@ -73,7 +73,7 @@ class UserData(_name: String, _cigarettesCount: Int,
         registrationTime = _registrationTime
     }
 
-    fun setAvatar(_avatar: String){
+    fun setAvatar(_avatar: String?){
         avatar = _avatar
     }
 
