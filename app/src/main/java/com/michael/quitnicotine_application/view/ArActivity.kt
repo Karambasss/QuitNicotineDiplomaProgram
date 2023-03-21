@@ -29,7 +29,7 @@ class ArActivity : AppCompatActivity() {
             if (clickNo == 1) {
                 val anchor = hitResult.createAnchor()
                 ModelRenderable.builder()
-                    .setSource(this, R.raw.gfg_gold_text_stand_2)
+                    .setSource(this, R.raw.sgrt)
                     .setIsFilamentGltf(true)
                     .build()
                     .thenAccept { modelRenderable: ModelRenderable? ->
@@ -40,7 +40,7 @@ class ArActivity : AppCompatActivity() {
                     }
                     .exceptionally { throwable: Throwable ->
                         val builder = AlertDialog.Builder(this)
-                        builder.setMessage("Somthing is not right" + throwable.message).show()
+                        builder.setMessage("Something is not right" + throwable.message).show()
                         null
                     }
             }
