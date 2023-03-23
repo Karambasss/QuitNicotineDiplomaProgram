@@ -19,7 +19,8 @@ class MainFragment : Fragment() {
         ArFragment.newInstance(),
         MotivationFragment.newInstance(),
         IdeasFragment.newInstance(),
-        AchievementFragment.newInstance()
+        AchievementFragment.newInstance(),
+        DiseaseFragment.newInstance()
     )
 
     override fun onCreateView(
@@ -38,7 +39,8 @@ class MainFragment : Fragment() {
             "AR",
             "Мотивация",
             "Советы",
-            "Достижения"
+            "Достижения",
+            "Заболевания"
         )
 
         val fragmentsListIcons = listOf(
@@ -46,7 +48,8 @@ class MainFragment : Fragment() {
             R.drawable.ic_baseline_camera_alt_24 ,
             R.drawable.ic_baseline_insert_emoticon_24 ,
             R.drawable.ic_baseline_lightbulb_24,
-            R.drawable.ic_baseline_emoji_events_24
+            R.drawable.ic_baseline_emoji_events_24,
+            R.drawable.heart_fill_svgrepo_com
         )
 
         val adapter: ViewPagerAdapter = ViewPagerAdapter(requireActivity(), fragmentsList)

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.DiseaseDetailFragment">
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorSilver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingDisease" />
+
+
+    <View
+        android:id="@+id/view9"
+        android:layout_width="200dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="6dp"
+        android:background="#2196F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headingDisease" />
+
+    <ImageView
+        android:id="@+id/diseaseImage"
+        android:layout_width="396dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/heart_rate_1_svgrepo_com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view9" />
+
+    <TextView
+        android:id="@+id/disease_detailedText"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/jetbrains_mono_semibold"
+        android:text="\tКурение приводит к инфаркту миокарда и инсульту. Курение способствует развитию атеросклероза, а вследствие гипертонии, гиперхолестеринемии и является ведущим фактором риска инфаркта миокарда. \n\tСигаретный дым вызывает спазм сосудов, способствует образованию тромбов, увеличивает число сердцебиений, повышает количество общего холестерина в крови. Инфаркт миокарда у курящих людей встречается в 3 раза чаще, чем у некурящих."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diseaseImage" />
+
+    <ImageView
+        android:id="@+id/backToDiseaseFragment"
+        android:layout_width="33dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_baseline_keyboard_return_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/headingDisease"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/jetbrains_mono"
+        android:text="Инфаркт миокарда"
+        android:textAlignment="center"
+        android:textColor="#2196F3"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
