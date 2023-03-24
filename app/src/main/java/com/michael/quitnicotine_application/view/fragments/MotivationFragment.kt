@@ -62,6 +62,9 @@ class MotivationFragment : Fragment(), CategoryAdapter.RecyclerViewInterface {
     }
 
     private fun setUpMotivationData(){
+        if (categoryList.size != 0){
+            categoryList.clear()
+        }
         val categoryNames = resources.getStringArray(R.array.category_names)
         val categoryImages = arrayOf(
             R.drawable.ic_baseline_directions_car_24,

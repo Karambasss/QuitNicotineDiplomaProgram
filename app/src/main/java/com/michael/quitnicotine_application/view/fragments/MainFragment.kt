@@ -20,6 +20,7 @@ class MainFragment : Fragment() {
         MotivationFragment.newInstance(),
         IdeasFragment.newInstance(),
         AchievementFragment.newInstance(),
+        HealthFragment.newInstance(),
         DiseaseFragment.newInstance()
     )
 
@@ -40,6 +41,7 @@ class MainFragment : Fragment() {
             "Мотивация",
             "Советы",
             "Достижения",
+            "Здоровье",
             "Заболевания"
         )
 
@@ -49,7 +51,8 @@ class MainFragment : Fragment() {
             R.drawable.ic_baseline_insert_emoticon_24 ,
             R.drawable.ic_baseline_lightbulb_24,
             R.drawable.ic_baseline_emoji_events_24,
-            R.drawable.heart_fill_svgrepo_com
+            R.drawable.heart_fill_svgrepo_com,
+            R.drawable.bacterium_svgrepo_com
         )
 
         val adapter: ViewPagerAdapter = ViewPagerAdapter(requireActivity(), fragmentsList)

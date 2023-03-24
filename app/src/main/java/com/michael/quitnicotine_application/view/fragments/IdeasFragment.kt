@@ -28,6 +28,9 @@ class IdeasFragment : Fragment() {
     }
 
     private fun initData(){
+        if (ideasList.size != 0){
+            ideasList.clear()
+        }
         val ideasHeadings = resources.getStringArray(R.array.ideasHeadings)
         val ideasDetailedText = resources.getStringArray(R.array.detailedTexts)
         val ideasImages = arrayOf(

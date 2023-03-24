@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#EDD2BD"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/organ_Image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="4dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/blood_donation_2_svgrepo_com" />
+
+            <TextView
+                android:id="@+id/organName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/jetbrains_mono_extrabold"
+                android:text="Кровь"
+                android:textAlignment="center"
+                android:textColor="#976262"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_expendableIcon2"
+                app:layout_constraintStart_toEndOf="@+id/organ_Image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView_expendableIcon2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/expandableLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/organ_Image">
+
+                <TextView
+                    android:id="@+id/organDetailedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:text="\t•	Очищается от никотина;\n •	нормализуется биохимический состав;\n •	приходит в норму соотношение лейкоцитов и эритроцитов;\n •	повышается уровень насыщенности кислородом;\n •	снижается риск тромбоза"
+                    android:textAlignment="textStart"
+                    android:textColor="#976262"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
